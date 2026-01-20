@@ -3,8 +3,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
-FACTCHECK_API_KEY = os.getenv("FACTCHECK_API_KEY")
+import streamlit as st
+FACTCHECK_API_KEY = st.secrets.get("FACTCHECK_API_KEY", os.getenv("FACTCHECK_API_KEY"))
 BASE_URL = "https://factchecktools.googleapis.com/v1alpha1/claims:search"
 
 def check_fact(query):

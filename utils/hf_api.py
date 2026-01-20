@@ -3,7 +3,9 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-HF_API_TOKEN = os.getenv("HF_API_TOKEN")
+import streamlit as st
+HF_API_TOKEN = st.secrets.get("HF_API_TOKEN", os.getenv("HF_API_TOKEN"))
+
 
 # ✅ Try models in order (fallback)
 MODEL_IDS = [
